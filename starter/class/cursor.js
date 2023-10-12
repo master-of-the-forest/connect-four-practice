@@ -12,6 +12,8 @@ class Cursor {
     this.gridColor = 'black';
     this.cursorColor = 'yellow';
 
+    this.setBackgroundColor()
+
   }
 
   resetBackgroundColor() {
@@ -22,12 +24,45 @@ class Cursor {
     Screen.setBackgroundColor(this.row, this.col, this.cursorColor);
   }
 
-  left() {
-    // Move cursor left
+  // Don't need up/down because it's connect four
+  // down() {
+  //   this.resetBackgroundColor()
+  //   if (this.row < 5) {
+  //     this.row += 1;
+  //   }
+  //   this.setBackgroundColor()
+  //   Screen.setMessage('You moved down!')
+  //   Screen.render()
+  // }
+
+  // up() {
+  //   this.resetBackgroundColor()
+  //   if (this.row > 0) {
+  //     this.row -= 1;
+  //   }
+  //   this.setBackgroundColor()
+  //   Screen.setMessage('You moved up!')
+  //   Screen.render()
+  // }
+
+  left = () => {
+    this.resetBackgroundColor()
+    if (this.col > 0) {
+      this.col -= 1;
+    }
+    this.setBackgroundColor()
+    Screen.setMessage('You moved left!')
+    Screen.render()
   }
 
-  right() {
-    // Move cursor right
+  right = () => {
+    this.resetBackgroundColor()
+    if (this.col < 6) {
+      this.col += 1;
+    }
+    this.setBackgroundColor()
+    Screen.setMessage('You moved right!')
+    Screen.render()
   }
 
 }

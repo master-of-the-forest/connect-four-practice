@@ -8,11 +8,11 @@ describe ('Cursor', function () {
   let cursor;
 
   beforeEach(function() {
-    cursor = new Cursor(3, 3);
+    cursor = new Cursor(5, 6);
   });
 
 
-  it('initializes for a 3x3 grid', function () {
+  it('initializes for a 5x6 grid', function () {
     expect(cursor.row).to.equal(0);
     expect(cursor.col).to.equal(0);
   });
@@ -26,7 +26,7 @@ describe ('Cursor', function () {
     expect([cursor.row, cursor.col]).to.deep.equal([2, 0]);
 
     cursor.down();
-    expect([cursor.row, cursor.col]).to.deep.equal([2, 0]);
+    expect([cursor.row, cursor.col]).to.deep.equal([3, 0]);
   });
 
   it('correctly processes up inputs', function () {
@@ -50,7 +50,7 @@ describe ('Cursor', function () {
     expect([cursor.row, cursor.col]).to.deep.equal([0, 2]);
 
     cursor.right();
-    expect([cursor.row, cursor.col]).to.deep.equal([0, 2]);
+    expect([cursor.row, cursor.col]).to.deep.equal([0, 3]);
   });
 
   it('processes left inputs', function () {
